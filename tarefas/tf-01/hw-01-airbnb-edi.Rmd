@@ -1,0 +1,96 @@
+---
+title: "TF 01 - Listagens do Airbnb em Edinburgh"
+output: 
+  tufte::tufte_html:
+    css: ../hw.css
+    tufte_variant: "envisioned"
+    highlight: pygments
+link-citations: yes
+---
+
+
+
+
+```{r grassmarket, fig.margin = TRUE, echo = FALSE, fig.width=3, fig.cap="Photo by Madeleine Kohler on Unsplash"}
+knitr::include_graphics("img/madeleine-kohler-90Qn643Pq9c-unsplash.jpg")
+```
+
+O recente desenvolvimento em Edimburgo em relação ao crescimento do Airbnb e seu impacto no mercado imobiliário significa que é necessário um melhor entendimento das listagens do Airbnb. Usando dados fornecidos pelo Airbnb, podemos explorar como a disponibilidade e os preços do Airbnb variam de acordo com o bairro.
+
+Os dados vêm do [banco de dados Kaggle](https://www.kaggle.com/thoroc/edinburgh-inside-airbnb/version/2). Está
+foi modificado para melhor servir aos objetivos desta exploração.
+
+## Metas de aprendizagem
+
+O objetivo desta tarefa não é conduzir uma análise completa das listagens do Airbnb em Edimburgo, mas, em vez disso, dar a você outra chance de praticar seu fluxo de trabalho, visualização de dados e habilidades de interpretação.
+
+## Conseguindo ajuda
+
+Se você tiver alguma dúvida sobre a tarefa, poste-as no Piazza!
+
+## Começando
+
+```{marginfigure}
+**IMPORTANT:** If there is no GitHub repo created for you for this assignment, it means I didn't have your GitHub username as of when I assigned the homework. Please let me know your GitHub username asap, and I can create your repo.
+```
+
+Acesse a organização GitHub do curso e localize seu repositório HW 1, que deve ser denominado `hw-01-airbnb-edi-SEU_USUARIO_GITHUB`. Pegue a URL do repo e clone-o no RStudio. Consulte o Laboratório 01 se desejar ver instruções passo a passo para clonar um repo em um projeto RStudio.
+
+Primeiro, abra o documento R Markdown `hw-01-airbnb-edi.Rmd` e faça o Knit. Certifique-se de que ele compila sem erros. A saída estará no arquivo markdown `.md` com o mesmo nome.
+
+## Pacotes
+
+Usaremos o pacote **tidyverse** para esta análise e os dados estão no pacote **dsbox**. Execute o seguinte código no console para carregar esses pacotes.
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(dsbox)
+```
+
+## Dados
+
+1. O conjunto de dados que você usará é denominado `edibnb`. Execute `View(edibnb)` em seu console para visualizar os dados no visualizador de dados. O que cada linha do conjunto de dados representa?
+
+```{marginfigure}
+**Dica:** A documento Markdown Quick Reference tem um exemplo de código R embutido que pode ser útil. Você pode acessá-lo no menu Help do RStudio.
+```
+
+2. Quantas observações (linhas) o conjunto de dados tem? Em vez de codificar o número em sua resposta, use o código embutido - nrow(edibnb).
+
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Agora é um bom momento para enviar e enviar suas alterações para o GitHub com uma mensagem de confirmação apropriada. Certifique-se de enviar e enviar todos os arquivos alterados para que o painel Git seja limpo depois.*
+
+Cada coluna representa uma variável. Podemos obter uma lista das variáveis no conjunto de dados usando a função `names()`.
+
+```{r}
+names(edibnb)
+```
+
+Você pode encontrar descrições de cada uma das variáveis no arquivo de ajuda do conjunto de dados, que pode ser acessado executando `?edibnb` em seu Console.
+
+```{marginfigure}
+**Nota:** O gráfico dará um aviso sobre algumas observações com valores não finitos de preço sendo removidos. Não se preocupe com o aviso, isso significa simplesmente que 199 listagens nos dados não tinham preços disponíveis, então eles não podem ser plotados.
+```
+
+3. Crie um histograma facetado onde cada faceta (`facet`) representa um bairro (neighbourhood) e exibe a distribuição dos preços (price) do Airbnb nesse bairro. O código de amostra é fornecido abaixo, mas você precisará preencher os espaços em branco.
+
+```{r eval=FALSE}
+ggplot(data = ___, mapping = aes(x = ___)) +
+  geom_histogram(binwidth = ___) +
+  facet_wrap(~___)
+```
+
+
+Vamos desconstruir este código:
+
+- `ggplot()` é a função que estamos usando para construir nosso gráfico, em camadas.
+- Na primeira camada, sempre definimos o conjunto de dados como o primeiro argumento. Em seguida, definimos os mapeamentos entre as variáveis no conjunto de dados e a **aes** (etética) do gráfico (por exemplo, coordenadas x e y, cores, etc.).
+- Na próxima camada representamos os dados com formas **geom** (geométricas), neste caso com um histograma. Você deve decidir qual a largura de compartimento (binwidth) razoável para o histograma experimentando algumas opções.
+- Na camada final, facetamos (**facet**) os dados por bairro (neighbourhood).
+
+
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Commit e push as mudanças feitas.*
+
+4. Crie uma visualização semelhante, desta vez mostrando a distribuição das pontuações das avaliações (`review_scores_rating`) entre os bairros. Em sua resposta, inclua uma breve interpretação de como os hóspedes do Airbnb classificam as propriedades em geral e como os bairros se comparam entre si em termos de suas classificações.
+
+
+`r emo::ji("white_check_mark")` `r emo::ji("arrow_up")` *Commit e push as mudanças feitas.*
