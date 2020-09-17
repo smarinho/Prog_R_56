@@ -1,7 +1,7 @@
 ---
 title: "TF 01 - Listagens do Airbnb em Edinburgh"
-author: "Seu nome completo"
-date: "DATA DE HOJE"
+author: "Sarah Marinho"
+date: "17/09/2020"
 output: github_document
 ---
 
@@ -12,18 +12,18 @@ library(dsbox)
 
 ### Ex 1.
 
-SUA RESPOSTA PARA O EXERCÍCIO 1 AQUI.
+Naa
 
 ### Ex 2.
 
-SUA RESPOSTA PARA O EXERCÍCIO 2 AQUI.
+Oma
 
 ### Ex 3.
 
 SUA RESPOSTA PARA O EXERCÍCIO 3 ESTÁ AQUI.
 
 ```{r price-by-neighbourhood}
-# your code for exercise 3 goes here
+3 * 3
 ```
 
 ### Ex 4.
@@ -31,6 +31,6 @@ SUA RESPOSTA PARA O EXERCÍCIO 3 ESTÁ AQUI.
 SUA RESPOSTA PARA O EXERCÍCIO 4 AQUI.
 
 ```{r rating-by-neighbourhood}
-# your code for exercise 4 goes here
+3+4
 ```
 
